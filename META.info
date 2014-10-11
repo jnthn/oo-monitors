@@ -1,0 +1,8 @@
+{
+    "name" : "OO::Monitors",
+    "version" : "*",
+    "description" : "Objects with mutual exclusion and condition variables",
+    "depends" : [ ],
+    "repo-type" : "git",
+    "source-url" : "git://github.com/jnthn/oo-monitors.git"
+}
