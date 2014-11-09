@@ -65,7 +65,7 @@ been met, use `meet-condition`. Here is an example of a bounded queue.
 
 When `wait-conditon` is used, the lock is released and the thread blocks until
 the condition is met by some other thread. By contrast, `meet-condition` just
-marks a waiting thread as unblocked, but retrains the lock until the method
+marks a waiting thread as unblocked, but retains the lock until the method
 is over.
 
 ## Circular waiting
