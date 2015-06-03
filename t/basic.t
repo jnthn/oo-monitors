@@ -16,7 +16,7 @@ monitor Counter {
 }
 
 my $cnt = Counter.new;
-isa_ok $cnt, Counter, 'A monitor works as a normal type';
+isa-ok $cnt, Counter, 'A monitor works as a normal type';
 ok $cnt.current === 0, 'Initialization works as expected';
 
 await do for ^4 {
