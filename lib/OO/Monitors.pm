@@ -1,3 +1,4 @@
+use experimental :macros;
 class MetamodelX::MonitorHOW is Metamodel::ClassHOW {
     has $!lock-attr;
     has %!condition-attrs;
