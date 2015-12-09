@@ -1,5 +1,6 @@
 {
     "name" : "OO::Monitors",
+	 "perl" : "v6",
     "version" : "*",
     "description" : "Objects with mutual exclusion and condition variables",
     "provides" : {
