@@ -48,7 +48,7 @@ been met, use `meet-condition`. Here is an example of a bounded queue.
         
         method add-task($task) {
             while @!tasks.elems == $!limit {
-                wait-condition <not-fulol>;
+                wait-condition <not-full>;
             }
             @!tasks.push($task);
             meet-condition <not-empty>;
