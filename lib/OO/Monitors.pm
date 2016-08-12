@@ -24,10 +24,12 @@ class MetamodelX::MonitorHOW is Metamodel::ClassHOW {
             my $*MONITOR := SELF;
             my $lock = $!lock-attr.get_value(SELF);
             $lock.lock();
-            my \result = callsame;
-            $lock.unlock();
-            CATCH { $lock.unlock(); }
-            result;
+            try {
+                my \result = callsame;
+                $lock.unlock();
+                CATCH { $lock.unlock(); }
+                result;
+            }
         });
         self.Metamodel::ClassHOW::add_method(type, $name, $meth);
     }
