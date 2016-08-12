@@ -15,14 +15,13 @@ class MetamodelX::MonitorHOW is Metamodel::ClassHOW {
         $!lock-attr = Attribute.new(
             name => '$!MONITR-lock',
             type => Lock,
-            package => type,
-            build => -> | { Lock.new }
+            package => type
         );
         self.add_attribute(type, $!lock-attr);
     }
 
     method add_method(Mu \type, $name, $meth) {
-        $meth.wrap(-> \SELF, | {
+        $name ne 'BUILDALL' && $meth.wrap(-> \SELF, | {
             if SELF.DEFINITE {
                 # Instance method call; acquire lock.
                 my $*MONITOR := SELF;
@@ -64,6 +63,19 @@ class MetamodelX::MonitorHOW is Metamodel::ClassHOW {
     }
 
     method compose(Mu \type) {
+        if self.method_table(type)<BUILDALL>:exists {
+            self.method_table(type)<BUILDALL>.wrap: -> \SELF, | {
+                $!lock-attr.set_value(SELF, Lock.new);
+                callsame();
+            };
+        }
+        else {
+            my $lock-attr := $!lock-attr;
+            self.add_method(type, 'BUILDALL', anon method BUILDALL(Mu \SELF: |) {
+                $lock-attr.set_value(SELF, Lock.new);
+                callsame();
+            });
+        }
         self.Metamodel::ClassHOW::compose(type);
     }
 }
