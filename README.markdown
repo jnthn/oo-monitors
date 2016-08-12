@@ -1,5 +1,7 @@
 # OO::Monitors
 
+[![Build Status](https://travis-ci.org/jnthn/oo-monitors.svg?branch=master)](https://travis-ci.org/jnthn/oo-monitors)
+
 A monitor provides per-instance mutual exclusion for objects. This means that
 for a given object instance, only one thread can ever be inside its methods at
 a time. This is achieved by a lock being associated with each object. The lock
