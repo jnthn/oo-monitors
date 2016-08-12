@@ -1,0 +1,16 @@
+{
+    "perl"         : "6.c",
+    "name"         : "OO::Monitors",
+    "version"      : "1.0",
+    "description"  : "Objects with mutual exclusion and condition variables",
+    "depends"      : [
+    ],
+    "test-depends" : [
+        "Test"
+    ],
+    "provides"     : {
+        "OO::Monitors" : "lib/OO/Monitors.pm6"
+    },
+    "authors"       : ["Jonathan Worthington"],
+    "support"       : {"source" : "git://github.com/jnthn/oo-monitors.git"}
+}
