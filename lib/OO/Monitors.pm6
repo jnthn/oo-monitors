@@ -21,6 +21,7 @@ class MetamodelX::MonitorHOW is Metamodel::ClassHOW {
     }
 
     method add_method(Mu \type, $name, $meth) {
+        my &callsame := CORE::<&callsame>;
         $name ne 'BUILDALL' && $meth.wrap(-> \SELF, | {
             if SELF.DEFINITE {
                 # Instance method call; acquire lock.
@@ -63,6 +64,7 @@ class MetamodelX::MonitorHOW is Metamodel::ClassHOW {
     }
 
     method compose(Mu \type) {
+        my &callsame := CORE::<&callsame>;
         if self.method_table(type)<BUILDALL>:exists {
             self.method_table(type)<BUILDALL>.wrap: -> \SELF, | {
                 $!lock-attr.set_value(SELF, Lock.new);
