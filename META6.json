@@ -1,7 +1,7 @@
 {
     "perl"         : "6.c",
     "name"         : "OO::Monitors",
-    "version"      : "1.0",
+    "version"      : "1.1",
     "description"  : "Objects with mutual exclusion and condition variables",
     "depends"      : [
     ],
