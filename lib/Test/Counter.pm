@@ -1,5 +1,7 @@
 use OO::Monitors;
 
+class TheExceptionWeExpect is Exception { }
+
 monitor Test::Counter {
     has $!a = 0;
 
@@ -9,5 +11,9 @@ monitor Test::Counter {
     
     method current() {
         $!a
+    }
+
+    method deadly() {
+        die TheExceptionWeExpect.new;
     }
 }

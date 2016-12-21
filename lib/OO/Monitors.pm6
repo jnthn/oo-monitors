@@ -27,12 +27,8 @@ class MetamodelX::MonitorHOW is Metamodel::ClassHOW {
                 my $*MONITOR := SELF;
                 my $lock = $!lock-attr.get_value(SELF);
                 $lock.lock();
-                try {
-                    my \result = callsame;
-                    $lock.unlock();
-                    CATCH { $lock.unlock(); }
-                    result;
-                }
+                LEAVE $lock.unlock();
+                callsame
             }
             else {
                 # Type object method call; delegate (presumably .new or some

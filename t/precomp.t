@@ -1,7 +1,10 @@
 use Test;
 use Test::Counter;
 
-plan 1;
-my $c = Test::Counter.new;
+plan 2;
 
-lives-ok { $c.inc }, "method from monitor works when pre-compiled";
+my $c = Test::Counter.new;
+lives-ok { $c.inc },
+    "method from monitor works when pre-compiled";
+throws-like { $c.deadly }, TheExceptionWeExpect,
+    "Exception thrown by monitor method is corret when pre-compiled";
