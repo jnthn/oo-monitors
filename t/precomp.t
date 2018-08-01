@@ -1,4 +1,6 @@
 use Test;
+
+use lib $*PROGRAM.parent.child('lib').Str;
 use Test::Counter;
 
 plan 2;
