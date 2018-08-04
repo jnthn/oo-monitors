@@ -16,6 +16,7 @@ A monitor looks like a normal class, but declared with the `monitor` keyword.
     
     monitor IPFilter {
         has %!active;
+        has %!blacklist; 
         has $.limit = 10;
         has $.blocked = 0;
         
