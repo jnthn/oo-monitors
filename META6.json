@@ -1,13 +1,10 @@
 {
     "perl"         : "6.c",
     "name"         : "OO::Monitors",
-    "version"      : "1.1",
+    "version"      : "1.1.1",
     "description"  : "Objects with mutual exclusion and condition variables",
-    "depends"      : [
-    ],
-    "test-depends" : [
-        "Test"
-    ],
+    "depends"      : [ ],
+    "test-depends" : [ ],
     "provides"     : {
         "OO::Monitors" : "lib/OO/Monitors.pm6"
     },
