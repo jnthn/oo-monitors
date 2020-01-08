@@ -10,5 +10,6 @@
     },
     "authors"       : ["Jonathan Worthington"],
     "license"       : "Artistic-2.0",
-    "support"       : {"source" : "git://github.com/jnthn/oo-monitors.git"}
+    "support"       : {"source" : "git://github.com/jnthn/oo-monitors.git"},
+    "tags"          : [ "OO", "concurrency", "MOP" ]
 }
