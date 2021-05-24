@@ -20,7 +20,6 @@ class MetamodelX::MonitorHOW is Metamodel::ClassHOW {
     }
 
     method add_method(Mu \type, $name, $meth) {
-        my &callsame := CORE::<&callsame>; # Workaround for RT #127858
         $name ne 'BUILDALL' && $meth.wrap(-> \SELF, | {
             if SELF.DEFINITE {
                 # Instance method call; acquire lock.
